@@ -1,0 +1,26 @@
+.btnADD{
+	margin-top: 10px;
+	padding-top: 5px;
+	text-align: center;
+	border-style: groove;
+	border-radius: 10px;
+	border-color: #1f1f14;
+	height: 30px;
+	width: 310px;
+	background-color:black;
+	color:#ccccb3;
+}
+
+.btnADD:hover{
+	cursor:pointer;
+	margin-top: 10px;
+	padding-top: 5px;
+	text-align: center;
+	border-style: groove;
+	border-radius: 10px;
+	border-color: #7a7a52;
+	height: 30px;
+	width: 310px;
+	background-color:#696969;
+	color:white;
+}

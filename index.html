@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>Workout Log</title>
+		<meta charset="utf-8">
+		<link rel='shortcut icon', href='public/images/favicon.ico'>
+		<link href='public/css/style.css' rel='stylesheet' type='text/css'>
+		<link href='public/css/btn.css' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script type="text/javascript" src="public/javascript/script.js"></script>
+	</head>
+	<body onLoad='countTime()'>
+		<div class='divApp'>
+			<p class='logo'>WORKOUT LOG</p>
+			
+			
+			<fieldset class="insertItem">
+			    <legend class="insertText">Insert an item</legend>
+			    <form align='center' onsubmit="addItem()">
+					<table class='tableForm' align='center'>
+						<tr>
+							<td>
+								<label for='inputTime'>Time</label>
+								<br/>
+					    		<input type='time' name='inputTime' id='inputTime' style='width: 70px;height: 25px' required autofocus>
+							</td>
+							<td style='padding-left: 10px'>
+								<label for='inputActivity'>Activity</label>
+								<br/>
+								<select name="activity" id='inputActivity' style='width: 90px;height: 25px'>
+									<option value="run">Run</option>
+									<option value="bike">Bike</option>
+									<option value="swimming">Swimming</option>
+									<option value="others">Others</option>
+								</select>
+							</td>
+							<td style='padding-left: 10px'>
+								<label for='inputDate'>Date</label>
+								<br/>
+					    		<input type='date' name='inputDate' id='inputDate' style='width: 130px;height: 25px' required format="DD MM YYYY">
+							</td>
+						</tr>
+					</table>
+
+					<input type='submit' class='btnADD' value='ADD'>
+				</form>
+			</fieldset>
+			
+			
+			<div class='divTabela' ng-app="myApp" ng-controller='myCtrl'>
+				<p class='welcome' id='Welcome' style='display:none'>WELCOME
+					<br/>
+					<a class='insertItemText'>Please, insert an item!</a>
+				</p>
+				<table align='center'; id='tableItems' class='tableItems'>
+					<tr>
+						<th style='border-radius: 8px 0 0 0;'> TIME </th>
+						<th> TYPE </th>
+						<th> DATE </th>
+						<th style='border-radius: 0 8px 0 0;'/>
+					</tr>
+					<tr ng-repeat='x in workout' id=Item{{$index}}>
+						<td> {{time[$index]}} </td>
+						<td> {{activity[$index]}} </td>
+						<td> {{date[$index]}} </td>
+						<td>
+							<a href="" ng-click="delete($index)" style='cursor:pointer'>
+								<img src='public/images/delete.png' class='delete'/>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>			
+			<p class='Results' id='pResults'>
+				<a style='font-family: "font"'>TOTAL TIME</a>
+				<br/>
+				<a id='innerPont' style="font-style: italic"></a>
+			</p>
+		</div>
+	</body>
+
+</html>
